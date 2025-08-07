@@ -8,3 +8,9 @@ hashes-*.json
 *.db
 *.db-journal
 build
+.next
+/out
+.pnpm-debug.log*
+.vercel
+*.tsbuildinfo
+next-env.d.ts

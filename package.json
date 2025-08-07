@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write ."
   },
