@@ -1,0 +1,10 @@
+.turbo
+node_modules
+hashes-*.json
+.env
+.DS_Store
+*.log
+*.tsbuildinfo
+*.db
+*.db-journal
+build
