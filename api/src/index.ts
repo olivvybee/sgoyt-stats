@@ -5,6 +5,7 @@ import { prettyJSON } from 'hono/pretty-json';
 import { cors } from 'hono/cors';
 import { config as loadEnv } from 'dotenv';
 import { checkCorsOrigin } from './utils/checkCorsOrigin';
+import { errorMiddleware } from './middleware/error';
 
 loadEnv();
 const PORT = Number(process.env.PORT) || 3000;
@@ -19,6 +20,7 @@ app.use(
     origin: CORS_ORIGINS || checkCorsOrigin,
   })
 );
+app.use(errorMiddleware);
 
 app.get('/', async (ctx) => {
   return ctx.body('Hello, world');
