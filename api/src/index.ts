@@ -5,6 +5,7 @@ import { prettyJSON } from 'hono/pretty-json';
 import { cors } from 'hono/cors';
 import { config as loadEnv } from 'dotenv';
 import { checkCorsOrigin } from './utils/checkCorsOrigin';
+import { listsRoute } from './routes/lists';
 import { errorMiddleware } from './middleware/error';
 
 loadEnv();
@@ -21,6 +22,8 @@ app.use(
   })
 );
 app.use(errorMiddleware);
+
+app.route('/lists', listsRoute);
 
 app.get('/', async (ctx) => {
   return ctx.body('Hello, world');
