@@ -5,6 +5,7 @@ export const createListSchema = z.object({
   id: z.number().int(),
   name: z.string(),
   theme: z.string().optional(),
+  announcementPostId: z.number().int(),
   host: z.object({
     id: z.number().int(),
     username: z.string(),
@@ -21,6 +22,7 @@ export const createList = async (input: CreateListInput) => {
       id: input.id,
       name: input.name,
       theme: input.theme,
+      announcementPostId: input.announcementPostId,
       host: {
         connectOrCreate: {
           where: {

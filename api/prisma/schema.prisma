@@ -8,9 +8,10 @@ datasource db {
 }
 
 model List {
-  id    Int     @id
-  name  String
-  theme String?
+  id                 Int     @id
+  name               String
+  theme              String?
+  announcementPostId Int
 
   host   User @relation(fields: [hostId], references: [id])
   hostId Int
