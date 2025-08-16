@@ -6,18 +6,13 @@ import { getLatestList } from './getLatestList';
 
 export const listsRoute = new Hono();
 
-listsRoute.post(
-  '/',
-  authMiddleware,
-  zValidator('json', createListSchema),
-  async (ctx) => {
-    const input = ctx.req.valid('json');
+listsRoute.post('/', zValidator('json', createListSchema), async (ctx) => {
+  const input = ctx.req.valid('json');
 
-    const list = await createList(input);
+  const list = await createList(input);
 
-    return ctx.json(list);
-  }
-);
+  return ctx.json(list);
+});
 
 listsRoute.get('/latest', async (ctx) => {
   const list = await getLatestList();

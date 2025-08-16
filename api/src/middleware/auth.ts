@@ -10,6 +10,10 @@ export const authMiddleware = createMiddleware(async (ctx, next) => {
     });
   }
 
-  const auth = bearerAuth({ token });
+  const auth = bearerAuth({
+    token,
+    noAuthenticationHeaderMessage: 'API key missing',
+    invalidTokenMessage: 'Invalid API key',
+  });
   return auth(ctx, next);
 });

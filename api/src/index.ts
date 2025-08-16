@@ -7,6 +7,7 @@ import { config as loadEnv } from 'dotenv';
 import { checkCorsOrigin } from './utils/checkCorsOrigin';
 import { listsRoute } from './routes/lists';
 import { errorMiddleware } from './middleware/error';
+import { authMiddleware } from './middleware/auth';
 
 loadEnv();
 const PORT = Number(process.env.PORT) || 3000;
@@ -21,6 +22,7 @@ app.use(
     origin: CORS_ORIGINS || checkCorsOrigin,
   })
 );
+app.use(authMiddleware);
 app.use(errorMiddleware);
 
 app.route('/lists', listsRoute);
