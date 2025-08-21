@@ -1,5 +1,5 @@
 import z from 'zod';
-import { getDB } from '../../db/getDB';
+import { getDB } from '../getDB';
 
 export const createListSchema = z.object({
   id: z.number().int(),

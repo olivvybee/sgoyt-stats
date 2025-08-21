@@ -1,4 +1,4 @@
-import { getDB } from '../../db/getDB';
+import { getDB } from '../getDB';
 
 export const getLatestList = async () => {
   const db = getDB();

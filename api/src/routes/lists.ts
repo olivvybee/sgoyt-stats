@@ -1,8 +1,7 @@
 import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
-import { authMiddleware } from '../../middleware/auth';
-import { createList, createListSchema } from './createList';
-import { getLatestList } from './getLatestList';
+
+import { createList, createListSchema, getLatestList } from '@/db/lists';
 
 export const listsRoute = new Hono();
 
